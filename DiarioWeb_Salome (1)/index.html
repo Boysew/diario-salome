@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diario Secreto de Salome</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+      color: #99004d;
+      text-align: center;
+      padding: 20px;
+    }
+    #login {
+      margin-top: 100px;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #ffb6c1;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #diario {
+      display: none;
+      margin-top: 20px;
+    }
+    #mensajeBonito {
+      margin: 20px auto;
+      font-size: 20px;
+      background: #fff0f5;
+      border-radius: 10px;
+      padding: 15px;
+      max-width: 500px;
+    }
+    textarea {
+      width: 90%;
+      height: 150px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ffb6c1;
+      margin-top: 20px;
+    }
+    #galeria img {
+      width: 80px;
+      margin: 5px;
+      border-radius: 10px;
+    }
+    #gojo {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 80px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div id="login">
+    <h2>🔐 Ingresar al diario secreto</h2>
+    <input type="password" id="clave" placeholder="Contraseña" />
+    <br />
+    <button onclick="acceder()">Entrar</button>
+  </div>
+
+  <div id="diario">
+    <h1>Bienvenida, Salome 💖</h1>
+    <p id="mensajeBonito"></p>
+    <button onclick="mostrarMensaje()">Mostrar mensaje bonito 💌</button>
+
+    <div>
+      <h3>Escribe lo que sientas hoy ✍️</h3>
+      <textarea id="textoDiario" placeholder="Escribe aquí..."></textarea>
+    </div>
+
+    <div>
+      <h3>Tus fotos favoritas 📸</h3>
+      <div id="galeria">
+        <img src="salome1.jpg" />
+        <img src="salome2.jpg" />
+        <img src="salome3.jpg" />
+        <img src="salome4.jpg" />
+        <img src="salome5.jpg" />
+      </div>
+    </div>
+  </div>
+
+  <img src="gojo.png" id="gojo" />
+
+  <script>
+    const mensajes = [
+      "Eres la luz que alegra mis días 🌞",
+      "Tu amistad es un regalo 🎁",
+      "Nunca olvides lo valiosa que eres 🌸",
+      "Contigo todo es más bonito ✨",
+      "Gojō dice: sigue sonriendo, Salome 💙"
+    ];
+
+    function acceder() {
+      const clave = document.getElementById("clave").value;
+      if (clave === "123") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("diario").style.display = "block";
+        mostrarMensaje();
+      } else {
+        alert("Contraseña incorrecta 💔");
+      }
+    }
+
+    function mostrarMensaje() {
+      const r = Math.floor(Math.random() * mensajes.length);
+      document.getElementById("mensajeBonito").textContent = mensajes[r];
+    }
+  </script>
+</body>
+</html>
